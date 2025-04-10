@@ -11,9 +11,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #d9a6a6; /* Kept your original background color */
-  overflow-x: hidden; /* Already in HTML, but good to have here for consistency */
-  position: relative; /* Already in HTML, added here for central management */
+  background-color: #d9a6a6;
+  overflow-x: hidden;
+  position: relative;
 }
 
 /* Container styling */
@@ -25,11 +25,12 @@ body {
   gap: 20px;
   max-width: 500px;
   margin: 20px;
-  background: rgba(255, 255, 255, 0.9); /* Moved from inline style for consistency */
-  padding: 20px; /* Moved from inline style */
-  border-radius: 10px; /* Moved from inline style */
-  position: relative; /* Already in HTML, ensures z-index works */
-  z-index: 1; /* Ensures container stays above falling hearts */
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;
+  position: relative; /* Ensures positioning context for absolute children */
 }
 
 /* GIF styling */
@@ -41,6 +42,7 @@ body {
 .container .btn {
   display: flex;
   gap: 25px;
+  position: relative; /* Provides positioning context for absolute button */
 }
 
 /* Button styling */
@@ -51,10 +53,10 @@ body {
   padding: 10px 25px;
   border-radius: 66px;
   box-shadow: 0.5rem 1rem 3rem hsl(0, 0%, 0%, 0.3);
-  transition: all 0.3s ease; /* Moved from inline style for consistency */
+  transition: all 0.3s ease;
 }
 
-/* Hover effects for buttons (moved from inline style) */
+/* Hover effects for buttons */
 .btn a:hover {
   transform: scale(1.1);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -62,6 +64,10 @@ body {
 
 /* Specific styling for the moving "No" button */
 #move-random {
-  position: absolute; /* Ensures it can move freely */
-  z-index: 2; /* Stays above falling hearts */
+  position: absolute;
+  z-index: 2;
+  /* Initial position (can be overridden by script) */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
