@@ -5,8 +5,41 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ask Her Out</title>
-
   <link rel="stylesheet" href="./style.css" />
+  <style>
+    /* Smooth scrolling for the entire HTML document */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Falling hearts background */
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      position: relative;
+      background: #fff;
+    }
+
+    /* Container styling with slight transparency */
+    .container {
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    /* Button hover effects */
+    .btn a {
+      transition: all 0.3s ease;
+    }
+
+    .btn a:hover {
+      transform: scale(1.1);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+  </style>
 </head>
 
 <body>
@@ -25,6 +58,35 @@
       <a href="no2.html">No</a>
     </div>
   </div>
+
+  <!-- Falling hearts animation script -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.innerHTML = '❤️';
+      heart.style.position = 'absolute';
+      heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.top = '-50px';
+      heart.style.opacity = Math.random() * 0.5 + 0.5;
+      heart.style.zIndex = '0';
+      
+      document.body.appendChild(heart);
+
+      const animation = heart.animate([
+        { transform: 'translateY(0)', rotate: '0deg' },
+        { transform: 'translateY(100vh)', rotate: '360deg' }
+      ], {
+        duration: Math.random() * 4000 + 4000,
+        easing: 'linear'
+      });
+
+      animation.onfinish = () => heart.remove();
+    }
+
+    // Create new hearts every 300ms
+    setInterval(createHeart, 300);
+  </script>
 </body>
 
 </html>
