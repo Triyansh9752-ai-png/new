@@ -1,44 +1,67 @@
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-  }
-  
-  body {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #d9a6a6;
-  }
-  
-  .container {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    gap: 20px;
-    max-width: 500px;
-    margin: 20px;
-  }
-  
-  .container .tenor-gif-embed {
-    max-width: 200px;
-  }
-  
-  .container .btn {
-    display: flex;
-    gap: 25px;
-  }
-  
-  .btn a {
-    text-decoration: none;
-    color: #111;
-    background: #fff;
-    padding: 10px 25px;
-    border-radius: 66px;
-    box-shadow: 0.5rem 1rem 3rem hsl(0, 0%, 0%, 0.3);
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d9a6a6; /* Kept your original background color */
+  overflow-x: hidden; /* Already in HTML, but good to have here for consistency */
+  position: relative; /* Already in HTML, added here for central management */
+}
+
+/* Container styling */
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  gap: 20px;
+  max-width: 500px;
+  margin: 20px;
+  background: rgba(255, 255, 255, 0.9); /* Moved from inline style for consistency */
+  padding: 20px; /* Moved from inline style */
+  border-radius: 10px; /* Moved from inline style */
+  position: relative; /* Already in HTML, ensures z-index works */
+  z-index: 1; /* Ensures container stays above falling hearts */
+}
+
+/* GIF styling */
+.container .tenor-gif-embed {
+  max-width: 200px;
+}
+
+/* Button container */
+.container .btn {
+  display: flex;
+  gap: 25px;
+}
+
+/* Button styling */
+.btn a {
+  text-decoration: none;
+  color: #111;
+  background: #fff;
+  padding: 10px 25px;
+  border-radius: 66px;
+  box-shadow: 0.5rem 1rem 3rem hsl(0, 0%, 0%, 0.3);
+  transition: all 0.3s ease; /* Moved from inline style for consistency */
+}
+
+/* Hover effects for buttons (moved from inline style) */
+.btn a:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Specific styling for the moving "No" button */
+#move-random {
+  position: absolute; /* Ensures it can move freely */
+  z-index: 2; /* Stays above falling hearts */
+}
